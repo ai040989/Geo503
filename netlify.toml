@@ -1,0 +1,62 @@
+[build]
+  publish = "."
+  command = "node build.js"
+
+# Formulaire Netlify pour l'audit GEO (détection automatique)
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/articles/*"
+  to = "/articles/:splat/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/geo"
+  to = "/geo/"
+  status = 301
+
+[[redirects]]
+  from = "/seo"
+  to = "/seo/"
+  status = 301
+
+[[redirects]]
+  from = "/outils"
+  to = "/outils/"
+  status = 301
+
+[[redirects]]
+  from = "/etudes-de-cas"
+  to = "/etudes-de-cas/"
+  status = 301
+
+[[redirects]]
+  from = "/mentions-legales"
+  to = "/mentions-legales/"
+  status = 301
+
+[[redirects]]
+  from = "/politique-de-confidentialite"
+  to = "/politique-de-confidentialite/"
+  status = 301
+
+[[redirects]]
+  from = "/gestion-des-cookies"
+  to = "/gestion-des-cookies/"
+  status = 301
+
+[[redirects]]
+  from = "/cgu"
+  to = "/cgu/"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact/"
+  status = 301
+
+[build.environment]
+  NODE_VERSION = "18"

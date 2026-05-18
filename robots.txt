@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Empêcher l'indexation du back-office et des assets
+Disallow: /admin/
+Disallow: /images/uploads/
+Disallow: /_articles/
+Disallow: /_data/
+Disallow: /_pages/
+
+# Sitemap
+Sitemap: https://geo503.com/sitemap.xml
+
+# Crawl-delay pour les bots secondaires
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /

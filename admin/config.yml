@@ -1,0 +1,79 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: 'fr'
+
+collections:
+
+  # ── ARTICLES ──────────────────────────────────────────
+  - name: "articles"
+    label: "Articles"
+    label_singular: "Article"
+    folder: "_articles"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "articles/{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - label: "Catégorie"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "GEO", value: "GEO" }
+          - { label: "SEO", value: "SEO" }
+          - { label: "Outils", value: "Outils" }
+          - { label: "Études de cas", value: "Études de cas" }
+          - { label: "Stratégie", value: "Stratégie" }
+          - { label: "Technique", value: "Technique" }
+          - { label: "Audit", value: "Audit" }
+          - { label: "GEO vs SEO", value: "GEO vs SEO" }
+      - { label: "Temps de lecture (ex: 8 min)", name: "reading_time", widget: "string", default: "5 min" }
+      - { label: "Extrait / Résumé", name: "excerpt", widget: "text" }
+      - { label: "Image de couverture", name: "cover_image", widget: "image", required: false }
+      - { label: "Alt texte image", name: "cover_alt", widget: "string", required: false }
+      - { label: "Article vedette (à la une) ?", name: "featured", widget: "boolean", default: false }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        allow_add: true
+        field: { label: Tag, name: tag, widget: string }
+
+  # ── PAGES LÉGALES & CONTENU ────────────────────────────
+  - name: "pages"
+    label: "Pages du site"
+    label_singular: "Page"
+    folder: "_pages"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre de la page", name: "title", widget: "string" }
+      - { label: "Slug (URL)", name: "slug", widget: "string" }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+
+  # ── PARAMÈTRES DU SITE ────────────────────────────────
+  - name: "settings"
+    label: "Paramètres du site"
+    files:
+      - label: "Paramètres généraux"
+        name: "general"
+        file: "_data/settings.json"
+        fields:
+          - { label: "Nom du site", name: "site_name", widget: "string", default: "GEO503" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "URL du site", name: "site_url", widget: "string", default: "https://geo503.com" }
+          - label: "Stats hero"
+            name: "hero_stats"
+            widget: "object"
+            fields:
+              - { label: "Articles publiés", name: "articles_count", widget: "string", default: "340+" }
+              - { label: "Professionnels", name: "professionals_count", widget: "string", default: "22K" }
+              - { label: "Moteurs IA couverts", name: "engines_count", widget: "string", default: "8 IA" }
+          - { label: "Twitter / X URL", name: "twitter_url", widget: "string", required: false }
+          - { label: "LinkedIn URL", name: "linkedin_url", widget: "string", required: false }
+          - { label: "E-mail de contact", name: "contact_email", widget: "string", default: "contact@geo503.com" }

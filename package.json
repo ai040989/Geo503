@@ -1,0 +1,12 @@
+{
+  "name": "georank-media",
+  "version": "1.0.0",
+  "description": "GEORANK MEDIA — Expert GEO, SEO & Visibilité IA",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js && echo 'Ouvrez index.html dans votre navigateur'"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
