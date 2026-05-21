@@ -38,18 +38,34 @@ Signal fiable : la position moyenne sur vos requêtes cibles, lissée sur 7 jour
 
 Beaucoup d'SEOs se focalisent sur les requêtes. Pendant une Core Update, l'analyse par pages est souvent plus révélatrice :
 
-
-
 Quelles URLs perdent des impressions (pas seulement des clics) ?
 
 Le CTR s'effondre-t-il sur une page spécifique ? Cela peut indiquer un changement de snippet ou de position.
 
 Des pages jusque-là non indexées apparaissent-elles dans le rapport ?
 
-
-
 Ce qu'il ne faut surtout pas faire
 
-Resist à l'impulsion de modifier votre contenu en cours de déploiement. Toute modification d'URL, de balise title ou de contenu pendant cette période sera interprétée par Google dans un contexte de réévaluation globale — et ses effets seront impossibles à dissocier de l'impact de la mise à jour elle-même.
+Resist à l'impulsion de modifier votre contenu en cours de déploiement. Toute modification d'URL, de balise title ou de contenu pendant cette période sera interprétée par Google dans un contexte de réévaluation globale  et ses effets seront impossibles à dissocier de l'impact de la mise à jour elle-même.
 
 Attendez la fin du déploiement. Auditez. Puis agissez.
+
+## Le bon protocole post-update (à partir du 4 juin)
+
+Exportez les données Search Console sur la période J-14 avant update vs J+14 après.
+
+Identifiez les pages avec une perte d'impressions > 20%   ce sont vos priorités d'audit.
+
+Analysez les SERPs de vos requêtes perdantes : quel type de contenu Google valorise-t-il désormais ? Format, profondeur, fraîcheur ?
+
+Comparez votre contenu aux nouveaux tops 3 sur ces requêtes. La Core Update signale souvent un glissement de l'intention de recherche.
+
+## À retenir
+
+La Core Update de mai 2026 n'est pas un événement isolé : c'est la deuxième en deux mois, après mars 2026. Google accélère la cadence de ses réévaluations. La Search Console reste votre outil de diagnostic le plus fiable — à condition de savoir quand et comment l'interroger.
+
+Rendez-vous début juin pour un premier bilan chiffré.
+
+
+
+Sources : Google Search Status Dashboard · Abondance  Core Update Mai 2026
