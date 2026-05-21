@@ -99,7 +99,7 @@ const HEAD = (title, desc='', canonical='') => `<!DOCTYPE html>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>${title}</title>
-  <meta name="description" content="${desc || `${SITE_NAME} — Le média de référence sur le GEO et le SEO pour les intelligences artificielles.`}"/>
+  <meta name="description" content="${desc || `${SITE_NAME} : Le média de référence sur le GEO et le SEO pour les intelligences artificielles.`}"/>
   <meta name="robots" content="index, follow"/>
   ${canonical ? `<link rel="canonical" href="${canonical}"/>` : ''}
   <meta property="og:title" content="${title}"/>
@@ -119,7 +119,7 @@ const HEAD = (title, desc='', canonical='') => `<!DOCTYPE html>
 const NAVBAR = (active='') => `
 <nav class="navbar navbar-expand-lg" role="navigation" aria-label="Navigation principale">
   <div class="container">
-    <a class="brand" href="/" aria-label="${SITE_NAME} — Accueil">
+    <a class="brand" href="/" aria-label="${SITE_NAME} : Accueil">
       <div class="brand-icon" aria-hidden="true">G5</div>
       GEO<em>503</em>
     </a>
@@ -376,7 +376,7 @@ const SIDEBAR = (all, slug='') => {
 // ══════════════════════════════════════════
 function buildLegal(slug, title, htmlContent) {
   const breadcrumb = title;
-  const html = `${HEAD(`${title} — ${SITE_NAME}`, title, `${DOMAIN}/${slug}/`)}
+  const html = `${HEAD(`${title} | ${SITE_NAME}`, title, `${DOMAIN}/${slug}/`)}
 ${NAVBAR()}
 <section style="background:var(--n1);padding:3.5rem 0 2rem">
   <div class="container">
@@ -587,12 +587,12 @@ console.log('✅ index.html');
 // ══════════════════════════════════════════
 const sitemapUrls = [`${DOMAIN}/`];
 
-sitemapUrls.push(buildCatalogue({ slug:'geo', pageTitle:`GEO — Generative Engine Optimization — ${SITE_NAME}`, desc:'Tous les articles GEO : stratégies et guides pour apparaître dans les réponses des moteurs IA.', can:`${DOMAIN}/geo/`, active:'geo', cf:'GEO', intro:"Tous nos articles dédiés au Generative Engine Optimization — pour être cité par ChatGPT, Perplexity, Gemini et les autres moteurs IA.", empty:'Les articles GEO arrivent bientôt. Créez votre premier article depuis le back-office en choisissant la catégorie "GEO".' }));
-sitemapUrls.push(buildCatalogue({ slug:'seo', pageTitle:`SEO — Référencement naturel — ${SITE_NAME}`, desc:'Tous les articles SEO : référencement technique, optimisation on-page, link building et stratégies de visibilité.', can:`${DOMAIN}/seo/`, active:'seo', cf:'SEO', intro:"Nos articles sur le SEO traditionnel et avancé — du référencement technique aux stratégies de contenu.", empty:'Les articles SEO arrivent bientôt. Créez votre premier article depuis le back-office en choisissant la catégorie "SEO".' }));
-sitemapUrls.push(buildCatalogue({ slug:'etudes-de-cas', pageTitle:`Études de cas — ${SITE_NAME}`, desc:"Études de cas GEO et SEO : analyses concrètes, résultats mesurés et recommandations actionnables.", can:`${DOMAIN}/etudes-de-cas/`, active:'etudes-de-cas', cf:'Études de cas', intro:"Des analyses concrètes et chiffrées de stratégies GEO et SEO — avec résultats et recommandations.", empty:'Les études de cas arrivent bientôt. Créez votre première étude depuis le back-office en choisissant la catégorie "Études de cas".' }));
+sitemapUrls.push(buildCatalogue({ slug:'geo', pageTitle:`GEO : Generative Engine Optimization | ${SITE_NAME}`, desc:'Tous les articles GEO : stratégies et guides pour apparaître dans les réponses des moteurs IA.', can:`${DOMAIN}/geo/`, active:'geo', cf:'GEO', intro:"Tous nos articles dédiés au Generative Engine Optimization — pour être cité par ChatGPT, Perplexity, Gemini et les autres moteurs IA.", empty:'Les articles GEO arrivent bientôt. Créez votre premier article depuis le back-office en choisissant la catégorie "GEO".' }));
+sitemapUrls.push(buildCatalogue({ slug:'seo', pageTitle:`SEO : Référencement naturel | ${SITE_NAME}`, desc:'Tous les articles SEO : référencement technique, optimisation on-page, link building et stratégies de visibilité.', can:`${DOMAIN}/seo/`, active:'seo', cf:'SEO', intro:"Nos articles sur le SEO traditionnel et avancé — du référencement technique aux stratégies de contenu.", empty:'Les articles SEO arrivent bientôt. Créez votre premier article depuis le back-office en choisissant la catégorie "SEO".' }));
+sitemapUrls.push(buildCatalogue({ slug:'etudes-de-cas', pageTitle:`Études de cas | ${SITE_NAME}`, desc:"Études de cas GEO et SEO : analyses concrètes, résultats mesurés et recommandations actionnables.", can:`${DOMAIN}/etudes-de-cas/`, active:'etudes-de-cas', cf:'Études de cas', intro:"Des analyses concrètes et chiffrées de stratégies GEO et SEO — avec résultats et recommandations.", empty:'Les études de cas arrivent bientôt. Créez votre première étude depuis le back-office en choisissant la catégorie "Études de cas".' }));
 
 // ── Outils ──
-const outilsHtml = `${HEAD(`Outils GEO & SEO — ${SITE_NAME}`, 'Les meilleurs outils pour auditer votre visibilité GEO et analyser vos performances SEO.', `${DOMAIN}/outils/`)}
+const outilsHtml = `${HEAD(`Outils GEO & SEO | ${SITE_NAME}`, 'Les meilleurs outils pour auditer votre visibilité GEO et analyser vos performances SEO.', `${DOMAIN}/outils/`)}
 ${NAVBAR('outils')}
 <section style="background:var(--n1);padding:4rem 0 2.5rem">
   <div class="container">
