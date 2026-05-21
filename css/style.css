@@ -1,4 +1,4 @@
-    /* ════════════════════════════════════════════════
+/* ════════════════════════════════════════════════
        DESIGN SYSTEM — GEORANK MEDIA
        Thème : Editorial Tech Sombre
        Palette : Rouge #C0272D + Noir #080808
@@ -534,13 +534,7 @@
     /* ════════════════════════════════════════════
        POPUP
     ════════════════════════════════════════════ */
-    .pop-overlay{
-      position:fixed;inset:0;background:rgba(0,0,0,.78);z-index:9000;
-      display:flex;align-items:center;justify-content:center;
-      opacity:0;pointer-events:none;transition:opacity .3s;
-      visibility:hidden;padding:1rem;
-    }
-    .pop-overlay.active{opacity:1;pointer-events:all;visibility:visible}
+    /* ancien .pop-overlay supprimé — voir version scroll-aware ci-dessous */
     .pop-box{
       background:var(--n2);border:1px solid var(--r);
       max-width:480px;width:100%;
@@ -910,17 +904,53 @@
       .article-hero-img-wrap img { border-radius: 8px; max-height: 240px; }
     }
 
-    /* 5. Correction couleurs texte — harmonisation contraste blanc */
-    .article-body { color: var(--w2) !important; }
-    .article-body h2, .article-body h3, .article-body h4 { color: var(--w) !important; }
-    .article-body p, .article-body li { color: var(--w2) !important; }
-    .article-body strong { color: var(--w) !important; }
-    .article-body a { color: var(--r2); }
+    /* 5. Correction couleurs texte — uniquement sur fonds sombres */
+    /* Article body sur fond sombre var(--n) ou var(--n1) */
+    section[style*="background:var(--n)"] .article-body,
+    section[style*="background:var(--n1)"] .article-body,
+    section[style*="background:var(--n2)"] .article-body {
+      color: var(--w2);
+    }
+    section[style*="background:var(--n)"] .article-body h2,
+    section[style*="background:var(--n)"] .article-body h3,
+    section[style*="background:var(--n)"] .article-body h4,
+    section[style*="background:var(--n1)"] .article-body h2,
+    section[style*="background:var(--n1)"] .article-body h3,
+    section[style*="background:var(--n1)"] .article-body h4 {
+      color: var(--w);
+    }
+    section[style*="background:var(--n)"] .article-body p,
+    section[style*="background:var(--n)"] .article-body li,
+    section[style*="background:var(--n1)"] .article-body p,
+    section[style*="background:var(--n1)"] .article-body li {
+      color: var(--w2);
+    }
 
-    /* Texte blanc sur sections sombres */
+    /* NE PAS forcer le blanc sur fond blanc — laisser le texte sombre par défaut */
+    .article-body { color: inherit; }
+
+    /* Texte blanc uniquement sur sections sombres explicites */
     .geo-section p, .geo-section li { color: var(--w2); }
     .bg-n1 p, .bg-n1 li { color: var(--w2); }
     .bg-n2 p, .bg-n2 li { color: var(--w2); }
+
+    /* Correction globale : si fond blanc détecté, forcer texte sombre */
+    [style*="background:#fff"] p,
+    [style*="background:#fff"] li,
+    [style*="background:#fff"] h1,
+    [style*="background:#fff"] h2,
+    [style*="background:#fff"] h3,
+    [style*="background: #fff"] p,
+    [style*="background: #fff"] li,
+    [style*="background:white"] p,
+    [style*="background:white"] li {
+      color: #222 !important;
+    }
+    [style*="background:#fff"] .article-body,
+    [style*="background: #fff"] .article-body,
+    [style*="background:white"] .article-body {
+      color: #333 !important;
+    }
 
     /* 6. Popup positionnée dans le viewport de l'utilisateur (scroll-aware) */
     .pop-overlay {
