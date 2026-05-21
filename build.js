@@ -304,6 +304,7 @@ ${NETLIFY_FORM_HIDDEN()}
 // ── Article cards ──
 const ACARD = a => `
 <article class="acard">
+  <a href="/articles/${a.slug}" class="card-full-link" aria-label="Lire : ${a.title}"></a>
   <div class="acard-img">
     <img src="${a.cover_image}" alt="${a.cover_alt}" loading="lazy" decoding="async" width="500" height="281"/>
     <span class="acard-cat">${a.category}</span>
@@ -313,12 +314,12 @@ const ACARD = a => `
     <div class="acard-meta"><span>${fdate(a.date)}</span></div>
     <h3 class="acard-title">${a.title}</h3>
     <p class="acard-excerpt">${a.excerpt}</p>
-    <a href="/articles/${a.slug}" class="acard-link">Lire</a>
   </div>
 </article>`;
 
 const FCARD = a => `
 <article class="fcard mb-4">
+  <a href="/articles/${a.slug}" class="card-full-link" aria-label="Lire : ${a.title}"></a>
   <div class="fcard-img">
     <img src="${a.cover_image}" alt="${a.cover_alt}" loading="lazy" decoding="async" width="700" height="525"/>
   </div>
@@ -327,7 +328,6 @@ const FCARD = a => `
     <div class="fcard-meta"><span>${fdate(a.date)}</span><span>${a.reading_time} de lecture</span></div>
     <h3 class="fcard-title">${a.title}</h3>
     <p class="fcard-excerpt">${a.excerpt}</p>
-    <a href="/articles/${a.slug}" class="btn-primary-r" style="width:fit-content;font-size:.73rem;padding:.6rem 1.3rem">Lire →</a>
   </div>
 </article>`;
 
@@ -458,7 +458,7 @@ const feat = arts.find(a => a.featured) || arts[0];
 const rest = arts.filter(a => a !== feat).slice(0,5);
 const mini = arts.slice(0,3);
 
-const indexHtml = `${HEAD(`${SITE_NAME} — Expert GEO, SEO & Visibilité dans les IA`, `${SITE_NAME} est le média de référence sur le GEO (Generative Engine Optimization) et le SEO pour apparaître dans les réponses des intelligences artificielles.`, `${DOMAIN}/`)}
+const indexHtml = `${HEAD(`${SITE_NAME} : actualité GEO, SEO & Visibilité dans les IA`, `${SITE_NAME} est le média de référence sur le GEO (Generative Engine Optimization) et le SEO pour apparaître dans les réponses des intelligences artificielles.`, `${DOMAIN}/`)}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -469,6 +469,7 @@ const indexHtml = `${HEAD(`${SITE_NAME} — Expert GEO, SEO & Visibilité dans l
 }
 </script>
 ${NAVBAR()}
+<div class="ck-spacer" id="ckSpacer"></div>
 <section class="hero" aria-label="Introduction">
   <div class="hero-left">
     <div class="hero-grid" aria-hidden="true"></div>
@@ -485,13 +486,7 @@ ${NAVBAR()}
       <div><div class="hstat-n">${cfg.hero_stats.engines_count}</div><div class="hstat-l">Moteurs couverts</div></div>
     </div>
   </div>
-  <div class="hero-right">
-    <img class="hero-img"
-         src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=75&fm=webp"
-         srcset="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=640&q=75&fm=webp 640w,https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1400&q=75&fm=webp 1400w"
-         sizes="(max-width:991px)100vw,50vw" alt="Interface IA générative"
-         fetchpriority="high" decoding="sync" loading="eager" width="1400" height="934"/>
-    <div class="hero-img-overlay" aria-hidden="true"></div>
+  <div class="hero-right" aria-hidden="true">
     <div class="hero-badge">
       <div class="hero-badge-tag">Tendance 2025</div>
       <div class="hero-badge-text">Le GEO dépasse le SEO dans 60% des requêtes informationnelles</div>
@@ -687,13 +682,15 @@ ${NAVBAR()}
     </div>
   </div></div></div>
 </section>
-<div style="background:var(--n2);overflow:hidden;max-height:480px">
-  <img src="${a.cover_image}" alt="${a.cover_alt}" style="width:100%;height:480px;object-fit:cover;display:block;opacity:.85" loading="lazy" decoding="async"/>
+<div style="background:var(--n);padding:2rem 0">
+  <div class="article-hero-img-wrap">
+    <img src="${a.cover_image}" alt="${a.cover_alt}" loading="lazy" decoding="async"/>
+  </div>
 </div>
 <section style="padding:4rem 0;background:var(--n)">
   <div class="container"><div class="row g-4">
     <div class="col-lg-8">
-      <div class="article-body" style="font-size:.97rem;color:#111;line-height:1.8;background:#fff;padding:2rem;border-radius:4px">${a.html||'<p style="color:var(--w3)">Contenu à venir…</p>'}</div>
+      <div class="article-body" style="font-size:.97rem;line-height:1.8;background:var(--n1);padding:2rem;border-radius:4px">${a.html||'<p style="color:var(--w3)">Contenu à venir…</p>'}</div>
       ${a.tags.length>0?`<div style="margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06)"><div class="widget-title" style="font-family:var(--font-head);font-size:.9rem;font-weight:700;color:var(--w);border-left:2px solid var(--r);padding-left:10px;margin-bottom:1rem">Tags</div><div class="tag-cloud">${a.tags.map(t=>`<a href="#" class="tag">${t}</a>`).join('')}</div></div>`:''}
       <div style="margin-top:2rem"><a href="${pg}" class="btn-ghost">← Retour à ${a.category}</a></div>
     </div>
